@@ -18,12 +18,63 @@
 			rel="stylesheet"
 			href="https://js.arcgis.com/calcite-components/2.4.0/calcite.css" />
 
-		<script src="https://js.arcgis.com/4.27/"></script>
+		<script src="https://js.arcgis.com/4.28/"></script>
 		<link
 			rel="stylesheet"
-			href="https://js.arcgis.com/4.27/esri/themes/light/main.css" />
+			href="https://js.arcgis.com/4.28/esri/themes/light/main.css" />
 	</head>
+	<script>
+		require([
+			"esri/WebMap",
+			"esri/views/MapView",
+			"esri/widgets/Bookmarks",
+			"esri/widgets/BasemapGallery",
+			"esri/widgets/LayerList",
+			"esri/widgets/Legend",
+			"esri/widgets/Print",
+		], function (WebMap, MapView, Bookmarks, BasemapGallery, LayerList, Legend, Print) {
+			// debugger;
+			const webmapId =
+				new URLSearchParams(window.location.search).get("webmap") ?? "210c5b77056846808c7a5ce93920be81";
 
+			const map = new WebMap({
+				portalItem: {
+					id: webmapId,
+				},
+			});
+
+			const view = new MapView({
+				map,
+				container: "viewDiv",
+				padding: {
+					left: 49,
+				},
+			});
+
+			view.ui.move("zoom", "bottom-right");
+			const basemaps = new BasemapGallery({
+				view,
+				container: "basemaps-container",
+			});
+			const bookmarks = new Bookmarks({
+				view,
+				container: "bookmarks-container",
+			});
+			const layerList = new LayerList({
+				view,
+				selectionEnabled: true,
+				container: "layers-container",
+			});
+			const legend = new Legend({
+				view,
+				container: "legend-container",
+			});
+			const print = new Print({
+				view,
+				container: "print-container",
+			});
+		});
+	</script>
 	<body>
 		<div id="root"></div>
 
