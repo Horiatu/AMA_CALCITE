@@ -2,9 +2,6 @@ import React from "react";
 import {useState} from "react";
 import "./App.css";
 
-import {setAssetPath} from "@esri/calcite-components/dist/components";
-setAssetPath(window.location.href);
-
 import {
 	CalciteShell,
 	CalciteShellPanel,
@@ -17,7 +14,7 @@ import {
 
 function App() {
 	const [count] = useState(0);
-	const tsLogo = "./src/assets/Typescript.svg";
+	const tsLogo = "./src/assets/Typescript-white.svg";
 	const reactLogo = "./src/assets/react.svg";
 	const viteLogo = "./vite.svg";
 
