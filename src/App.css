@@ -53,6 +53,7 @@ h1 {
 	position: relative;
 	padding: 0.25rem;
 	margin: 0;
+	color: azure;
 }
 
 #rightBtns {
@@ -67,7 +68,7 @@ h1 {
 	margin: 0;
 	height: 100%;
 	width: 100%;
-	height: calc(100vh - 66.31px);
+	height: calc(100vh - 75px);
 	/* min-height: 500px;
 	position: fixed; */
 }
