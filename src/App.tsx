@@ -37,6 +37,7 @@ function App() {
 								src={viteLogo}
 								className="logo"
 								alt="Vite logo"
+								title="Vite"
 							/>
 						</a>
 						<a
@@ -46,6 +47,7 @@ function App() {
 								src={reactLogo}
 								className="logo react"
 								alt="React logo"
+								title="React"
 							/>
 						</a>
 						<a
@@ -55,6 +57,7 @@ function App() {
 								src={tsLogo}
 								className="logo"
 								alt="TypeScript logo"
+								title="TypeScript"
 							/>
 						</a>
 					</div>
