@@ -70,6 +70,8 @@ h1 {
 	height: 100%;
 	width: 100%;
 	height: calc(100vh - 75px);
-	/* min-height: 500px;
-	position: fixed; */
+}
+
+#info-content {
+	padding: 0.5rem;
 }

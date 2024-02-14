@@ -128,26 +128,26 @@ function App() {
 						hidden>
 						<div id="print-container"></div>
 					</CalcitePanel>
-				</CalciteShellPanel>
 
-				<CalcitePanel
-					heading="Details"
-					data-panel-id="information"
-					hidden>
-					<div id="info-content">
-						<img
-							id="item-thumbnail"
-							alt="webmap thumbnail"
-						/>
-						<div id="item-description"></div>
-						<CalciteLabel layout="inline">
-							<b>Rating:</b>
-							<CalciteRating
-								id="item-rating"
-								read-only></CalciteRating>
-						</CalciteLabel>
-					</div>
-				</CalcitePanel>
+					<CalcitePanel
+						heading="Details"
+						data-panel-id="information"
+						hidden>
+						<div id="info-content">
+							<img
+								id="item-thumbnail"
+								alt="webmap thumbnail"
+							/>
+							<div id="item-description"></div>
+							<CalciteLabel layout="inline">
+								<b>Rating:</b>
+								<CalciteRating
+									id="item-rating"
+									read-only></CalciteRating>
+							</CalciteLabel>
+						</div>
+					</CalcitePanel>
+				</CalciteShellPanel>
 
 				<div id="viewDiv"></div>
 			</CalciteShell>
