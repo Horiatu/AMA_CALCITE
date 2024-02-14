@@ -1,13 +1,127 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<link
+			rel="icon"
+			type="image/svg+xml"
+			href="/vite.svg" />
+		<meta
+			name="viewport"
+			content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+		<title>AMA Calcite</title>
+		<script
+			src="https://js.arcgis.com/calcite-components/2.4.0/calcite.esm.js"
+			type="module"></script>
+		<link
+			rel="stylesheet"
+			href="https://js.arcgis.com/calcite-components/2.4.0/calcite.css" />
+
+		<script src="https://js.arcgis.com/4.28/"></script>
+		<link
+			rel="stylesheet"
+			href="https://js.arcgis.com/4.28/esri/themes/light/main.css" />
+	</head>
+	<script>
+		require([
+			"esri/WebMap",
+			"esri/views/MapView",
+			"esri/widgets/Bookmarks",
+			"esri/widgets/BasemapGallery",
+			"esri/widgets/LayerList",
+			"esri/widgets/Legend",
+			"esri/widgets/Print",
+		], function (WebMap, MapView, Bookmarks, BasemapGallery, LayerList, Legend, Print) {
+			// debugger;
+			const webmapId =
+				new URLSearchParams(window.location.search).get("webmap") ?? "210c5b77056846808c7a5ce93920be81";
+
+			const map = new WebMap({
+				portalItem: {
+					id: webmapId,
+				},
+			});
+
+			const view = new MapView({
+				map,
+				container: "viewDiv",
+				padding: {
+					left: 49,
+				},
+			});
+
+			view.ui.move("zoom", "bottom-right");
+			const basemaps = new BasemapGallery({
+				view,
+				container: "basemaps-container",
+			});
+			const bookmarks = new Bookmarks({
+				view,
+				container: "bookmarks-container",
+			});
+			const layerList = new LayerList({
+				view,
+				selectionEnabled: true,
+				container: "layers-container",
+			});
+			const legend = new Legend({
+				view,
+				container: "legend-container",
+			});
+			const print = new Print({
+				view,
+				container: "print-container",
+			});
+
+			map.when(() => {
+				const {title, description, thumbnailUrl, avgRating} = map.portalItem;
+				document.querySelector("#header-title").textContent = title;
+				document.querySelector("#item-description").innerHTML = description;
+				document.querySelector("#item-thumbnail").src = thumbnailUrl;
+				document.querySelector("#item-rating").value = avgRating;
+
+				let activeWidget;
+
+				const handleActionBarClick = ({target}) => {
+					if (target.tagName !== "CALCITE-ACTION") {
+						return;
+					}
+
+					if (activeWidget) {
+						document.querySelector(`[data-action-id=${activeWidget}]`).active = false;
+						document.querySelector(`[data-panel-id=${activeWidget}]`).hidden = true;
+					}
+
+					const nextWidget = target.dataset.actionId;
+					if (nextWidget !== activeWidget) {
+						document.querySelector(`[data-action-id=${nextWidget}]`).active = true;
+						document.querySelector(`[data-panel-id=${nextWidget}]`).hidden = false;
+						activeWidget = nextWidget;
+					} else {
+						activeWidget = null;
+					}
+				};
+
+				document.querySelector("calcite-action-bar").addEventListener("click", handleActionBarClick);
+
+				let actionBarExpanded = false;
+
+				document.addEventListener("calciteActionBarToggle", (event) => {
+					actionBarExpanded = !actionBarExpanded;
+					view.padding = {
+						left: actionBarExpanded ? 135 : 49,
+					};
+				});
+			});
+		});
+	</script>
+	<body>
+		<calcite-loader></calcite-loader>
+		<div id="root"></div>
+
+		<script
+			type="module"
+			src="/src/main.tsx"></script>
+	</body>
 </html>
