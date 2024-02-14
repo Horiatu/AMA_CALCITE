@@ -17,6 +17,7 @@ import {
 
 function App() {
 	const [count] = useState(0);
+	const tsLogo = "./src/assets/Typescript.svg";
 	const reactLogo = "./src/assets/react.svg";
 	const viteLogo = "./vite.svg";
 
@@ -45,6 +46,15 @@ function App() {
 								src={reactLogo}
 								className="logo react"
 								alt="React logo"
+							/>
+						</a>
+						<a
+							href="https://www.typescriptlang.org/docs/"
+							target="_blank">
+							<img
+								src={tsLogo}
+								className="logo"
+								alt="TypeScript logo"
 							/>
 						</a>
 					</div>
