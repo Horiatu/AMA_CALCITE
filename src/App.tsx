@@ -24,10 +24,11 @@ function App() {
 		<>
 			<CalciteShell content-behind>
 				<h1
-					id="header-title"
-					slot="header">
-					AMA C a l c i t e
+					slot="header"
+					id="header-title">
+					<span id="map-title">...</span>
 					<div id="rightBtns">
+						<span>AMA C a l c i t e</span>
 						<a
 							href="https://vitejs.dev"
 							target="_blank">
