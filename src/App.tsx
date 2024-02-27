@@ -14,8 +14,8 @@ import {
 
 function App() {
 	const [count] = useState(0);
-	const tsLogo = "./src/assets/Typescript-white.svg";
-	const reactLogo = "./src/assets/react.svg";
+	const tsLogo = "./Typescript-white.svg";
+	const reactLogo = "./react.svg";
 	const viteLogo = "./vite.svg";
 
 	return (
