@@ -1,6 +1,6 @@
 import React from "react";
 import {useState} from "react";
-import "./App.css";
+// import "./App.css";
 
 import {
 	CalciteShell,
@@ -11,6 +11,8 @@ import {
 	CalciteLabel,
 	CalciteRating,
 } from "@esri/calcite-components-react";
+
+import "./App.css";
 
 function App() {
 	const [count] = useState(0);
