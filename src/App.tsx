@@ -1,5 +1,5 @@
 import React from "react";
-import {useState} from "react";
+// import {useState} from "react";
 // import "./App.css";
 
 import {
@@ -10,12 +10,15 @@ import {
 	CalcitePanel,
 	CalciteLabel,
 	CalciteRating,
+	CalciteTile,
+	CalciteCheckbox,
 } from "@esri/calcite-components-react";
 
 import "./App.css";
+import TitleBar from "./TitleBar";
 
 function App() {
-	const [count] = useState(0);
+	// const [count] = useState(0);
 	const tsLogo = "./Typescript-white.svg";
 	const reactLogo = "./react.svg";
 	const viteLogo = "./vite.svg";
@@ -23,51 +26,14 @@ function App() {
 	return (
 		<>
 			<CalciteShell content-behind>
-				<h1
-					slot="header"
-					id="header-title">
-					<span id="map-title">...</span>
-					<div id="rightBtns">
-						<span>AMA C a l c i t e</span>
-						<a
-							href="https://vitejs.dev"
-							target="_blank">
-							<img
-								src={viteLogo}
-								className="logo"
-								alt="Vite logo"
-								title="Vite"
-							/>
-						</a>
-						<a
-							href="https://react.dev"
-							target="_blank">
-							<img
-								src={reactLogo}
-								className="logo react"
-								alt="React logo"
-								title="React"
-							/>
-						</a>
-						<a
-							href="https://www.typescriptlang.org/docs/"
-							target="_blank">
-							<img
-								src={tsLogo}
-								className="logo"
-								alt="TypeScript logo"
-								title="TypeScript"
-							/>
-						</a>
-					</div>
-				</h1>
+				<TitleBar></TitleBar>
 
 				<CalciteShellPanel
 					slot="panel-start"
 					display-mode="float">
 					<CalciteActionBar slot="action-bar">
 						<CalciteAction
-							data-action-id="layers"
+							data-action-id="p_layers"
 							icon="layers"
 							text="Layers"></CalciteAction>
 						<CalciteAction
@@ -95,7 +61,7 @@ function App() {
 					<CalcitePanel
 						heading="Layers"
 						height-scale="l"
-						data-panel-id="layers"
+						data-panel-id="p_layers"
 						hidden>
 						<div id="layers-container"></div>
 					</CalcitePanel>
