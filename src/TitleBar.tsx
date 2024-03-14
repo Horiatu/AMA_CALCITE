@@ -11,9 +11,9 @@ function TitleBar() {
 		<h1
 			slot="header"
 			id="title-bar">
-			<span id="map-title">[title]</span>
+			<span id="map-title">[AMA C a l c i t e]</span>
 			<div id="rightBtns">
-				<span>AMA C a l c i t e</span>
+				{/* <span>AMA C a l c i t e</span> */}
 				<a
 					href="https://vitejs.dev"
 					target="_blank">

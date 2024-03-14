@@ -1,6 +1,4 @@
 import React from "react";
-// import {useState} from "react";
-// import "./App.css";
 
 import {
 	CalciteShell,
@@ -16,6 +14,7 @@ import {
 
 import "./App.css";
 import TitleBar from "./TitleBar";
+import Details from "./Details";
 
 function App() {
 	// const [count] = useState(0);
@@ -98,7 +97,8 @@ function App() {
 						heading="Details"
 						data-panel-id="information"
 						hidden>
-						<div id="info-content">
+						<Details document></Details>
+						{/* <div id="info-content">
 							<img
 								id="item-thumbnail"
 								alt="webmap thumbnail"
@@ -110,7 +110,7 @@ function App() {
 									id="item-rating"
 									read-only></CalciteRating>
 							</CalciteLabel>
-						</div>
+						</div> */}
 					</CalcitePanel>
 				</CalciteShellPanel>
 
