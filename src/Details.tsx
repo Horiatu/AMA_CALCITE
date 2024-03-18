@@ -1,13 +1,17 @@
-import {CalciteLabel, CalciteRating} from "@esri/calcite-components-react";
+import {CalciteChip, CalciteLabel, CalciteRating} from "@esri/calcite-components-react";
 // import WebMap from "@esri/WebMap";
 
 import React from "react";
+import {VERSION} from "./version";
 
-// import "./App.css";
+const JSAPI_VERSION = "?";
 
 function Details() {
 	return (
 		<div id="info-content">
+			<CalciteLabel>
+				Version: {VERSION} (jsApi: {(window as any).JSAPI_VERSION})
+			</CalciteLabel>
 			<img
 				id="item-thumbnail"
 				alt="webmap thumbnail"
