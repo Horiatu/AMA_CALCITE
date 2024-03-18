@@ -82,10 +82,13 @@
 
 				map.when(() => {
 					const {title, description, thumbnailUrl, avgRating} = map.portalItem;
+					const itemDescription = document.querySelector("#item-description");
 					document.querySelector("#map-title").textContent = title;
-					document.querySelector("#item-description").innerHTML = description;
+					itemDescription.innerHTML = description;
 					document.querySelector("#item-thumbnail").src = thumbnailUrl;
 					document.querySelector("#item-rating").value = avgRating;
+
+					// itemDescription.scrollTop = itemDescription.scrollHeight; // ?
 
 					let activeWidget;
 

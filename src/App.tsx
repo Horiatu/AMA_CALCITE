@@ -97,20 +97,7 @@ function App() {
 						heading="Details"
 						data-panel-id="information"
 						hidden>
-						<Details document></Details>
-						{/* <div id="info-content">
-							<img
-								id="item-thumbnail"
-								alt="webmap thumbnail"
-							/>
-							<div id="item-description"></div>
-							<CalciteLabel layout="inline">
-								<b>Rating:</b>
-								<CalciteRating
-									id="item-rating"
-									read-only></CalciteRating>
-							</CalciteLabel>
-						</div> */}
+						<Details />
 					</CalcitePanel>
 				</CalciteShellPanel>
 
