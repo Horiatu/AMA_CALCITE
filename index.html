@@ -38,12 +38,9 @@
 				"esri/widgets/LayerList",
 				"esri/widgets/Legend",
 				"esri/widgets/Print",
-				"esri/kernel"
-,
-			], function (WebMap, MapView, Bookmarks, BasemapGallery, LayerList, Legend, Print, kernel) {
+			], function (WebMap, MapView, Bookmarks, BasemapGallery, LayerList, Legend, Print) {
 				// debugger;
 
-				window.JSAPI_VERSION = kernel.version;
 				const webmapId =
 					new URLSearchParams(window.location.search).get("webmap") ?? "fcd60462e6b9436891b6d86d529f282d";
 
