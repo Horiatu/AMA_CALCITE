@@ -32,6 +32,10 @@ function App() {
 					display-mode="float">
 					<CalciteActionBar slot="action-bar">
 						<CalciteAction
+							data-action-id="information"
+							icon="information"
+							text="Information"></CalciteAction>
+						<CalciteAction
 							data-action-id="p_layers"
 							icon="layers"
 							text="Layers"></CalciteAction>
@@ -51,10 +55,6 @@ function App() {
 							data-action-id="print"
 							icon="print"
 							text="Print"></CalciteAction>
-						<CalciteAction
-							data-action-id="information"
-							icon="information"
-							text="Information"></CalciteAction>
 					</CalciteActionBar>
 
 					<CalcitePanel
