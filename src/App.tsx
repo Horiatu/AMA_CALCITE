@@ -12,6 +12,26 @@ import "./App.css";
 import {TitleBar} from "./TitleBar";
 import {Details} from "./Details";
 
+export let WebmapId: string;
+
+export const Remember = (name: string, value: any) => {
+	if (Persist.WebmapId) {
+		localStorage[name + "?" + Persist.WebmapId] = value;
+	}
+};
+
+export const Recall = (name: string, _default?: any): any => {
+	if (Persist.WebmapId) {
+		let value = localStorage[name + "?" + Persist.WebmapId];
+		if (!value && _default != null) {
+			value = _default;
+			// AddressManagerVM.remember(name, value);
+		}
+		return value;
+	}
+	return null;
+};
+
 export function App() {
 	// const [count] = useState(0);
 	const tsLogo = "./Typescript-white.svg";

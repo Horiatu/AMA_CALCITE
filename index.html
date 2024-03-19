@@ -38,10 +38,14 @@
 				"esri/widgets/LayerList",
 				"esri/widgets/Legend",
 				"esri/widgets/Print",
+				// "./src/Persist",
 			], function (WebMap, MapView, Bookmarks, BasemapGallery, LayerList, Legend, Print) {
+				// , Persist) {
 				// debugger;
 
-				const webmapId =
+				// const persist = new Persist();
+
+				const webmapId = // persist.WebmapID = 
 					new URLSearchParams(window.location.search).get("webmap") ?? "fcd60462e6b9436891b6d86d529f282d";
 
 				const map = new WebMap({
