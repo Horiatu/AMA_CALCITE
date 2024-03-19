@@ -2,7 +2,7 @@ import React from "react";
 
 // import "./App.css";
 
-function TitleBar() {
+export function TitleBar() {
 	const tsLogo = "./Typescript-white.svg";
 	const reactLogo = "./react.svg";
 	const viteLogo = "./vite.svg";
@@ -49,4 +49,4 @@ function TitleBar() {
 	);
 }
 
-export default TitleBar;
+// export default TitleBar;

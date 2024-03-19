@@ -6,17 +6,13 @@ import {
 	CalciteActionBar,
 	CalciteAction,
 	CalcitePanel,
-	CalciteLabel,
-	CalciteRating,
-	CalciteTile,
-	CalciteCheckbox,
 } from "@esri/calcite-components-react";
 
 import "./App.css";
-import TitleBar from "./TitleBar";
-import Details from "./Details";
+import {TitleBar} from "./TitleBar";
+import {Details} from "./Details";
 
-function App() {
+export function App() {
 	// const [count] = useState(0);
 	const tsLogo = "./Typescript-white.svg";
 	const reactLogo = "./react.svg";
@@ -107,4 +103,4 @@ function App() {
 	);
 }
 
-export default App;
+// export default App;

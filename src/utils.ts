@@ -2,12 +2,13 @@
 /* eslint-disable prefer-rest-params */
 // import {ApplicationConfig} from "ApplicationBase/interfaces";
 // import html from "dojo/_base/html";
-// import Graphic from "esri/Graphic";
+import Graphic from "@arcgis/core/Graphic";
+// import * as Geometry from "@arcgis/core/geometry.js";
 // import FeatureLayer from "esri/layers/FeatureLayer";
 // import CodedValueDomain from "esri/layers/support/CodedValueDomain";
 // import i18n = require("dojo/i18n!./widgets/nls/resources");
 // import {property} from "esri/core/accessorSupport/decorators";
-// import {Geometry} from "esri/geometry";
+import {Geometry} from "@arcgis/core/geometry";
 // import {IDirtyFeature} from "./widgets/AMACore/AMACoreViewModel";
 
 // export function Has(config: ApplicationConfig, tool: string): boolean {
@@ -34,28 +35,28 @@ String.prototype.isNullOrWhiteSpace = function (): boolean {
 	return this === undefined || this === null || this.trim() === "";
 };
 
-String.prototype.mixIn = function (o: any): string {
-	const regexp = /{([^{]+)}/g;
+// String.prototype.mixIn = function (o: any): string {
+// 	const regexp = /{([^{]+)}/g;
 
-	return (function (str, o) {
-		return str.replace(regexp, function (ignore: any, key: string | number) {
-			return (key = o[key]) == null ? "" : key;
-		});
-	})(this, o);
-};
+// 	return (function (str, o) {
+// 		return str.replace(regexp, function (ignore: any, key: string | number) {
+// 			return (key = o[key]) == null ? "" : key;
+// 		});
+// 	})(this, o);
+// };
 
 Number.prototype.padLeft = function (n, str) {
 	return new Array(n - String(this).length + 1).join(str || "0") + this;
 };
 
-Date.prototype.toSQL = function (): string {
+Date.prototype.toSQL = function (): string | any {
 	if (this.toDateString() === "Invalid Date") {
 		return null;
 	}
 	return this.getFullYear().padLeft(4) + (this.getMonth() + 1).padLeft(2) + this.getDate().padLeft(2);
 };
 
-Date.prototype.toInputDate = function (time: boolean = false): string {
+Date.prototype.toInputDate = function (time?: boolean): string | any {
 	if (this.toDateString() === "Invalid Date") {
 		return null;
 	}
@@ -67,7 +68,7 @@ Date.prototype.toInputDate = function (time: boolean = false): string {
 	return date.startsWith("1899-12-31") || date.startsWith("1969-12-31") ? null : date;
 };
 
-Date.prototype.toUTC = function (): Date {
+Date.prototype.toUTC = function (): Date | any {
 	if (this.toDateString() === "Invalid Date") {
 		return null;
 	}
@@ -91,12 +92,12 @@ if (!String.prototype.startsWith) {
 // eslint-disable-next-line no-extend-native
 String.prototype.format = function (): string {
 	const args = arguments;
-	return this.replace(/{(\d+)}/g, function (match: any, number: string | number) {
+	return this.replace(/{(\d+)}/g, function (match: any, number: number) {
 		return typeof args[number] !== "undefined" ? args[number] : match;
 	});
 };
 
-String.prototype.Format = function (...args): string {
+String.prototype.Format = function (...args): String {
 	let a = this;
 	for (const k in args) {
 		if (args.hasOwnProperty(k)) {
@@ -296,7 +297,7 @@ Graphic.prototype.setDirty = function (
 };
 
 Graphic.prototype.isDirty = function (): boolean {
-	return "Dirty" in this && this.Dirty;
+	return !!("Dirty" in this && this.Dirty);
 };
 
 Graphic.prototype.isSaved = function (): boolean | string {

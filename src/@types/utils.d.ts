@@ -8,9 +8,9 @@ declare interface String {
 	normalizeTitle(): string;
 	stripTags(): string;
 	format(...replacements: string[]): string;
-	mixIn(o: any): string;
+	// mixIn(o: any): string;
 	startsWith(searchString: String, pos?: number): boolean;
-	Format(...args: any[]): string;
+	Format(...args: any[]): String;
 	nameEscape(): string;
 	logColor(color: consoleColor): string;
 }
@@ -26,7 +26,7 @@ declare interface Number {
 }
 
 declare interface Graphic {
-	isDirtyField(fieldName: string): boolean;
+	isDirtyField(fieldName: string, isDate?: boolean): boolean;
 	setDirty(fieldName: string, value, input?: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement): boolean;
 	isDirty(): boolean;
 	isSaved(): boolean | string;
