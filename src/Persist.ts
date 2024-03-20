@@ -1,4 +1,4 @@
-export class Persist {
+export default class Persist {
 	public static WebmapId: string;
 
 	public static Remember = (name: string, value: any) => {

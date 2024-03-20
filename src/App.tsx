@@ -9,9 +9,9 @@ import {
 } from "@esri/calcite-components-react";
 
 import "./App.css";
-import {TitleBar} from "./TitleBar";
-import {Details} from "./Details";
-import {Persist} from "./Persist";
+import TitleBar from "./TitleBar";
+import Details from "./Details";
+import Persist from "./Persist";
 
 export let WebmapId: string;
 
@@ -33,7 +33,7 @@ export const Recall = (name: string, _default?: any): any => {
 	return null;
 };
 
-export function App() {
+export default function App() {
 	// const [count] = useState(0);
 	const tsLogo = "./Typescript-white.svg";
 	const reactLogo = "./react.svg";

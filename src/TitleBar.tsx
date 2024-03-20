@@ -2,7 +2,7 @@ import React from "react";
 
 // import "./App.css";
 
-export function TitleBar() {
+export default function TitleBar() {
 	const tsLogo = "./Typescript-white.svg";
 	const reactLogo = "./react.svg";
 	const viteLogo = "./vite.svg";

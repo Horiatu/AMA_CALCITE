@@ -4,7 +4,7 @@ import {CalciteChip, CalciteLabel, CalciteRating} from "@esri/calcite-components
 import React from "react";
 import {JSAPI_VERSION, VERSION} from "./version";
 
-export function Details() {
+export default function Details() {
 	return (
 		<div id="info-content">
 			<CalciteLabel>

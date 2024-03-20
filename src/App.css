@@ -12,7 +12,21 @@ body {
 	box-sizing: border-box;
 	min-width: unset !important;
 	min-height: unset !important;
+	font-size: 8px;
 }
+
+html,
+body {
+	font-size: 8px;
+}
+
+@media only screen and (min-width: 1000px) {
+	html,
+	body {
+		font-size: 16px;
+	}
+}
+
 #root {
 	width: 100%;
 }
@@ -70,7 +84,7 @@ h1 {
 	margin: 0;
 	height: 100%;
 	width: 100%;
-	height: calc(100vh - 75px);
+	/* height: calc(100vh - 4.688rem); */
 }
 
 #info-content {
