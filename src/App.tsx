@@ -8,8 +8,8 @@ import {
 	CalcitePanel,
 } from "@esri/calcite-components-react";
 
-import "./atomic.css";
-import "./App.css";
+import "./styles/atomic.css";
+import "./styles/App.css";
 import TitleBar from "./TitleBar";
 import Details from "./Details";
 import Persist from "./Persist";
