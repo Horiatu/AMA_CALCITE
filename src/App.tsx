@@ -8,6 +8,7 @@ import {
 	CalcitePanel,
 } from "@esri/calcite-components-react";
 
+import "./atomic.css";
 import "./App.css";
 import TitleBar from "./TitleBar";
 import Details from "./Details";
@@ -78,6 +79,7 @@ export default function App() {
 						heading="Layers"
 						height-scale="l"
 						data-panel-id="p_layers"
+						className="pMax90"
 						hidden>
 						<div id="layers-container"></div>
 					</CalcitePanel>
@@ -85,6 +87,7 @@ export default function App() {
 						heading="Basemaps"
 						height-scale="l"
 						data-panel-id="basemaps"
+						className="pMax90"
 						hidden>
 						<div id="basemaps-container"></div>
 					</CalcitePanel>
@@ -92,6 +95,7 @@ export default function App() {
 						heading="Legend"
 						height-scale="l"
 						data-panel-id="legend"
+						className="pMax90"
 						hidden>
 						<div id="legend-container"></div>
 					</CalcitePanel>
@@ -99,6 +103,7 @@ export default function App() {
 						heading="Bookmarks"
 						height-scale="l"
 						data-panel-id="bookmarks"
+						className="pMax90"
 						hidden>
 						<div id="bookmarks-container"></div>
 					</CalcitePanel>
@@ -106,6 +111,7 @@ export default function App() {
 						heading="Print"
 						height-scale="l"
 						data-panel-id="print"
+						className="pMax90"
 						hidden>
 						<div id="print-container"></div>
 					</CalcitePanel>
@@ -113,6 +119,7 @@ export default function App() {
 					<CalcitePanel
 						heading="Details"
 						data-panel-id="information"
+						className="pMax90"
 						hidden>
 						<Details />
 					</CalcitePanel>
