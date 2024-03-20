@@ -11,6 +11,7 @@ import {
 import "./App.css";
 import {TitleBar} from "./TitleBar";
 import {Details} from "./Details";
+import {Persist} from "./Persist";
 
 export let WebmapId: string;
 

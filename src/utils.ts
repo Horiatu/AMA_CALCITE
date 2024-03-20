@@ -1,15 +1,13 @@
-/* eslint-disable no-extend-native */
-/* eslint-disable prefer-rest-params */
 // import {ApplicationConfig} from "ApplicationBase/interfaces";
-// import html from "dojo/_base/html";
 import Graphic from "@arcgis/core/Graphic";
-// import * as Geometry from "@arcgis/core/geometry.js";
-// import FeatureLayer from "esri/layers/FeatureLayer";
-// import CodedValueDomain from "esri/layers/support/CodedValueDomain";
+// import Graphic from "./@types/utils";
+// import * as Geometry from "@arcgis/core/geometry";
+import FeatureLayer from "@arcgis/core/layers/FeatureLayer";
+import CodedValueDomain from "@arcgis/core/layers/support/CodedValueDomain";
 // import i18n = require("dojo/i18n!./widgets/nls/resources");
 // import {property} from "esri/core/accessorSupport/decorators";
 import {Geometry} from "@arcgis/core/geometry";
-// import {IDirtyFeature} from "./widgets/AMACore/AMACoreViewModel";
+import {IDirtyFeature, consoleColor} from "./@types/utils";
 
 // export function Has(config: ApplicationConfig, tool: string): boolean {
 // 	// console.log("config", config);
@@ -49,14 +47,14 @@ Number.prototype.padLeft = function (n, str) {
 	return new Array(n - String(this).length + 1).join(str || "0") + this;
 };
 
-Date.prototype.toSQL = function (): string | any {
+Date.prototype.toSQL = function (): string {
 	if (this.toDateString() === "Invalid Date") {
 		return null;
 	}
 	return this.getFullYear().padLeft(4) + (this.getMonth() + 1).padLeft(2) + this.getDate().padLeft(2);
 };
 
-Date.prototype.toInputDate = function (time?: boolean): string | any {
+Date.prototype.toInputDate = function (time?: boolean): string {
 	if (this.toDateString() === "Invalid Date") {
 		return null;
 	}
@@ -68,7 +66,7 @@ Date.prototype.toInputDate = function (time?: boolean): string | any {
 	return date.startsWith("1899-12-31") || date.startsWith("1969-12-31") ? null : date;
 };
 
-Date.prototype.toUTC = function (): Date | any {
+Date.prototype.toUTC = function (): Date {
 	if (this.toDateString() === "Invalid Date") {
 		return null;
 	}
@@ -113,7 +111,7 @@ String.prototype.nameEscape = function (): string {
 	return a;
 };
 
-Graphic.prototype.isDirtyField = function (fieldName: string, isDate = false): boolean {
+Graphic.prototype.isDirtyField = function (fieldName: string, isDate?: boolean): boolean {
 	if (fieldName !== "geometry") {
 		const hasOriginalValue =
 			this.attributes &&
@@ -240,14 +238,15 @@ Graphic.prototype.setDirty = function (
 							}
 						} catch (e) {}
 					}
-					const title = [i18n.InitialValue.format(initialValue)];
+					const title = ['Initial Value: "{0}"'.format(initialValue)]; // [i18n.InitialValue.format(initialValue)];
 					if (!(input as any).readOnly && !input.disabled) {
-						// title.push(`([Esc] to restore)`);
-						title.push(i18n.Restore);
+						title.push(`([Esc] to restore)`);
+						// title.push(i18n.Restore);
 					}
 					input.title = title.join("\n");
 				} else {
-					html.removeAttr(input, "title");
+					input.removeAttribute("title");
+					// html.removeAttr(input, "title");
 				}
 			}
 		}

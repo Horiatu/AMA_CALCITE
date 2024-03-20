@@ -1,6 +1,9 @@
 /// <reference types="typescript" />
 
-declare type consoleColor = "red" | "yellow" | "green" | "blue" | "cyan" | "purple" | "gray";
+import {Geometry} from "@arcgis/core/geometry";
+import FeatureLayer from "@arcgis/core/layers/FeatureLayer";
+
+export type consoleColor = "red" | "yellow" | "green" | "blue" | "cyan" | "purple" | "gray";
 
 declare interface String {
 	isNullOrWhiteSpace(): boolean;
@@ -32,8 +35,45 @@ declare interface Graphic {
 	isSaved(): boolean | string;
 }
 
-declare interface PromiseConstructor {
-	allSettled(
-		promises: Array<Promise<any>>
-	): Promise<Array<{status: "fulfilled" | "rejected"; value?: any; reason?: any}>>;
+export type formulaModeType = "max" | "applyFieldAfter";
+
+export interface IAutoFeatureLayer extends FeatureLayer {
+	hasAuto: boolean;
+	autoGenerateSeed: number;
+	getNextAutoSeed: () => number;
+	autoField: string;
+	SpecialFieldNames: {};
+	FormulaFields: {mode: formulaModeType; formula: string; field; input}[];
+	initialDefinitionExpression: string;
 }
+
+export interface IDirtyFeature extends Graphic {
+	geometry: Geometry;
+	Dirty?: boolean;
+	originalValues?: Object;
+	originalGeometry(): Geometry;
+	features?: IDirtyFeature[];
+	detetedFeatures?: IDirtyFeature[];
+	notNew?: boolean;
+	selectionGraphic?: any;
+	sourceLayer?: IAutoFeatureLayer;
+	brokenRules?: string[];
+	doNotSave?: boolean;
+
+	isDirtyField(fieldName: string, isDate?): boolean;
+	setDirty(
+		value: any,
+		fieldName?: string,
+		input?: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+	): boolean;
+	isDirty(): boolean;
+	isNew(): boolean;
+	isSaved(): boolean | string;
+	relatedGraphics?: Graphic[];
+}
+
+// declare interface PromiseConstructor {
+// 	allSettled(
+// 		promises: Array<Promise<any>>
+// 	): Promise<Array<{status: "fulfilled" | "rejected"; value?: any; reason?: any}>>;
+// }
