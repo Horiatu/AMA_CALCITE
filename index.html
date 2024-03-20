@@ -37,14 +37,10 @@
 				"esri/widgets/BasemapGallery",
 				"esri/widgets/LayerList",
 				"esri/widgets/Legend",
-				"esri/widgets/Print",
-				"./src/Persist",
-			], function (WebMap, MapView, Bookmarks, BasemapGallery, LayerList, Legend, Print, Persist) {
-				// debugger;
+				"esri/widgets/Print"
+			], function (WebMap, MapView, Bookmarks, BasemapGallery, LayerList, Legend, Print) {
 
-				// const persist = new Persist();
-
-				const webmapId = Persist.WebmapID = 
+				const webmapId = document.WebmapID = 
 					new URLSearchParams(window.location.search).get("webmap") ?? "fcd60462e6b9436891b6d86d529f282d";
 
 				const map = new WebMap({
@@ -62,7 +58,7 @@
 				});
 
 				view.when(() => {
-
+					document.getElementById("loader").classList.add("hide")
 				})
 
 				view.ui.move("zoom", "top-left");
@@ -136,7 +132,6 @@
 	</head>
 	<body>
 		<div id="root">
-			<!-- <calcite-loader></calcite-loader> -->
 		</div>
 
 		<script

@@ -6,6 +6,7 @@ import {
 	CalciteActionBar,
 	CalciteAction,
 	CalcitePanel,
+	CalciteLoader,
 } from "@esri/calcite-components-react";
 
 import "./styles/atomic.css";
@@ -125,7 +126,14 @@ export default function App() {
 					</CalcitePanel>
 				</CalciteShellPanel>
 
-				<div id="viewDiv"></div>
+				<div className="full">
+					<CalciteLoader
+						id="loader"
+						label="loading"
+						text="loading"
+						scale="l"></CalciteLoader>
+					<div id="viewDiv"></div>
+				</div>
 			</CalciteShell>
 		</>
 	);
